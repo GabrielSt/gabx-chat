@@ -1,6 +1,7 @@
 import { ADD_USER, USERS_LIST } from "../actions/constants";
 
 const initialState = [];
+initialState.concat([{ name: "Gabriel", id: 1 }]);
 
 function userssReducer(state = initialState, action) {
   switch (action.type) {

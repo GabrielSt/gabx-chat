@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { addMessage } from "../../actions/messagesActions";
 
 import Sidebar from "../../components/sidebar";
 import MessageForm from "../../components/messageForm";
@@ -10,10 +11,10 @@ class ChatContainer extends Component {
   render() {
     return (
       <div id="container">
-        <Sidebar />
+        <Sidebar {...this.props} />
         <section id="main">
-          <MessagesList />
-          <MessageForm />
+          <MessagesList {...this.props} />
+          <MessageForm {...this.props} />
         </section>
       </div>
     );
@@ -21,12 +22,14 @@ class ChatContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  chat: state.chat
+  messages: state.messages,
+  users: state.users
 });
 
-// const mapDispatchToProps = dispatch => bindActionCreators();
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ addMessage }, dispatch);
 
 export default connect(
-  mapStateToProps
-  //   mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ChatContainer);

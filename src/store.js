@@ -3,6 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import rootReducer from "./reducers";
 import handleNewMessage from "./sagas";
 import setupSocket from "./sockets";
+import username from "./utils/name";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,8 +16,6 @@ const store = applyMiddleware(...middlewares)(createStore)(
   rootReducer,
   devTools
 );
-
-const username = "Gabriel";
 
 const socket = setupSocket(store.dispatch, username);
 

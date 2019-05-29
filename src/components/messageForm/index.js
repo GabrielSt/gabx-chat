@@ -23,13 +23,16 @@ class MessageForm extends Component {
     }
 
     this.props.addMessage(this.state.message, "Me");
+    this.setState({ message: "" });
   }
 
   render() {
     return (
       <section id="new-message">
         <input
+          id="msgInput"
           type="text"
+          value={this.state.message}
           onChange={this.handleChange}
           onKeyPress={target => {
             if (target.charCode === 13) this.handleClick();

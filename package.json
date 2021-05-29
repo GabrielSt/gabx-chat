@@ -11,7 +11,7 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.2",
-    "ws": "^7.0.0"
+    "ws": "^7.4.6"
   },
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"react-scripts start\" \"npm run server\"",
